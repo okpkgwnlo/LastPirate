@@ -4,7 +4,7 @@ if not game:IsLoaded() then
         wait(10)
     until game:IsLoaded() 
 end
-
+wait(4)
 PlaceID = game.PlaceId
 if PlaceID == 6329844902 then
     
