@@ -4487,6 +4487,7 @@ spawn(function()
                 if game:GetService("Workspace").Lives:FindFirstChild(_G.SelectBoss) then
                     for i,v in pairs(game:GetService("Workspace").Lives:GetChildren()) do
                         if v.Name == _G.SelectBoss then
+                            pcall(function()
                             if _G.Auto_Farm then
                                 _G.Auto_Farm = false
                                 _G.PO = true
@@ -4514,6 +4515,7 @@ spawn(function()
                                 wait(1)
                                 _G.Auto_Farm_Boss = false
                             end
+                            end)
                         end
                     end
                 else
@@ -4651,11 +4653,11 @@ end)
 
 
 spawn(function()
-        while game:GetService("RunService").Stepped:wait(15) do
+        while game:GetService("RunService").Stepped:wait(3) do
             character = game.Players.LocalPlayer.Character 
             if _G.NoClip or _G.Auto_Farm or _G.Auto_Farm_Boss then
                 pcall(function()
-                    for _, v in pairs(character:GetDescendants()) do
+                    for _, v in pairs(character:GetChildren()) do
                         pcall(function()
                             if v:IsA("BasePart") then
                                 pcall(function()
