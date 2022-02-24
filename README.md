@@ -4,7 +4,7 @@ if not game:IsLoaded() then
         wait(10)
     until game:IsLoaded() 
 end
-wait(5)
+
 PlaceID = game.PlaceId
 if PlaceID == 6329844902 then
     
@@ -4495,9 +4495,14 @@ spawn(function()
                             if not game.Players.LocalPlayer.Character:FindFirstChild("Buso") then
                                     game:GetService("ReplicatedStorage").Haki:FireServer("Buso")
                             end
+                            if _G.SelectBoss == "TreeMoster" then
+                                _G.Min = 0
+                            else
+                                _G.Min = -6.5
+                            end
                             pcall(function()
                             repeat game:GetService("RunService").Stepped:wait(0.2)
-                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,-6.5,0)
+                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,_G.Min,0)
                                 game:GetService'VirtualUser':CaptureController()
                                 game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                             until v.Humanoid.Health <= 0 or _G.Auto_Farm_Boss == false or not v.Parent
